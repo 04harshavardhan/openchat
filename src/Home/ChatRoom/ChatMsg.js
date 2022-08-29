@@ -102,7 +102,12 @@ export default function ChatMsg({ msg }) {
 function toTimeInfo(timestamp) {
   const today = new Date();
 
-  const date = timestamp.toDate();
+  let date
+  if (timestamp) {
+    date = timestamp.toDate();
+  } else {
+    date = new Date();
+  }
   const year = date.getFullYear();
   const month = date.toLocaleString("en-GB", { month: "short" });
   const day = date.toLocaleString("en-GB", { day: "2-digit" });
